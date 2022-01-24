@@ -1,0 +1,34 @@
+#ignore python files
+*.py
+
+#ignore Makefile
+Makefile
+
+#ignore viz firectory
+**/viz
+
+#ignore data-model files
+confirmedFluHosps__long.csv
+confirmedFluHosps__wide.csv
+
+#ignore raw MCMC samples files
+*-allPredictions.csv
+
+# ignore pyc files
+**/__pycache__
+__pycache__/interface.cpython-39.pyc
+
+# ignore preprocess files
+*-preprocess.csv
+
+LICENSE.txt
+
+.gitignore
+
+*pyc
+*gz
+*.pkl
+allcommuni*.csv
+community*.csv
+**/build
+**/datalog
