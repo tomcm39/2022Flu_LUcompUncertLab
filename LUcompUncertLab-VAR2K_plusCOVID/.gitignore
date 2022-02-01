@@ -25,3 +25,4 @@ LICENSE.txt
 .gitignore
 
 *pyc
+*gz

@@ -32,7 +32,7 @@ push:
 	git push
 
 zip:
-	gzip *allPredictions.csv
+	gzip -f *allPredictions.csv
 
 send: add commit push
 .PHONY: send
