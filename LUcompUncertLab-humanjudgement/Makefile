@@ -7,20 +7,20 @@ COMMITsuffix:=$(shell date +"%Y-%m-%d")
 
 COMMIT:=$(COMMITprefix) $(COMMITsuffix)
 
-runall: collectAndFormatData generateForecasts postprocess checkLocations plotTrajectories sync
+runall: collectAndFormatData interpolate generateForecasts postprocess plotTrajectories sync
 .PHONY: runall
 
 collectAndFormatData:
-	$(PYTHON) LUcompUncertLab-dataprep.py && echo "data prepared"
+	$(PYTHON) LUcompUncertLab-dataprep.py && $(PYTHON) preprocess.py && echo "data prepared"
+
+interpolate:
+	$(PYTHON) interpolate_community_quantiles.py && echo "interpolated over time"
 
 generateForecasts:
-	$(PYTHON) LUcompUncertLab-TEVA.py && echo "forecasts generated"
+	$(PYTHON) buildWeightsForLocations.py && echo "forecasts generated"
 
 postprocess:
-	$(PYTHON) LUcompUncertLab-postProcess.py && echo "Post process complete"
-
-checkLocations:
-	$(PYTHON) checkFile.py && echo "Location information"
+	$(PYTHON) postprocess.py && echo "Post process complete"
 
 plotTrajectories:
 	$(PYTHON) plotTrajectories.py && echo "Plotted trajectories"
