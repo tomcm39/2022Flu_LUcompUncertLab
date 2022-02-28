@@ -28,7 +28,7 @@ def prepareData(f):
     fluhosp = pd.read_csv(f)   
     fluhosp = fluhosp.loc[fluhosp.ew>202101] #ONLY CONSIDERING 2021 and later
 
-    fluhosp = fluhosp.set_index(["ew","mw","date"])
+    fluhosp = fluhosp.set_index(["ew","mw"])
     #fluhosp = fluhosp.loc[:, fluhosp.sum(0)!=0] # REMOVE locations with all zeros
     return fluhosp
        
@@ -59,13 +59,6 @@ if __name__ == "__main__":
         if n==0:
             writeout=0
 
-        visual = viz(dataQuantiles,fluhosp,covidhosp,[includedstates],[])
-        visual.forecastVizLOCS()
-
     #BUILD US FORECAST
     USquantiles = model.createUnitedStatesForecast()
-
     interface_local.writeData(writeout=0,dataPredictions=None,dataQuantiles = USquantiles)
-    
-    visual = viz(USquantiles,fluhosp,covidhosp,["US"],[])
-    visual.forecastVizLOCS()

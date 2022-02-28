@@ -22,6 +22,9 @@ postprocess:
 checkLocations:
 	$(PYTHON) checkFile.py && echo "Location information"
 
+plotTrajectories:
+	$(PYTHON) plotTrajectories.py && echo "Plotted trajectories"
+
 add:
 	git add .
 
