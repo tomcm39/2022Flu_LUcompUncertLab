@@ -68,7 +68,7 @@ if __name__ == "__main__":
     
     fromMw2Ew = {row.mw:row.ew for _,row in ewAndModelWeek.iterrows() }
 
-    d = d.drop(columns = ["date"])
+    #d = d.drop(columns = ["date"])
     
     ewByLocation = pd.pivot_table(index=["ew","mw"],columns=["location"],values = ["value"],data=d)
     ewByLocation.columns = [location for (x,location) in ewByLocation.columns]
