@@ -27,7 +27,7 @@ def prepareData(f):
     fluhosp = pd.read_csv(f)   
     fluhosp = fluhosp.loc[fluhosp.ew>202101] #ONLY CONSIDERING 2021 and later
 
-    fluhosp = fluhosp.set_index(["ew","mw","date"])
+    fluhosp = fluhosp.set_index(["ew","mw"])
     #fluhosp = fluhosp.loc[:, fluhosp.sum(0)!=0] # REMOVE locations with all zeros
     return fluhosp
        

@@ -67,6 +67,9 @@ if __name__ == "__main__":
     d = d.reset_index()
     
     fromMw2Ew = {row.mw:row.ew for _,row in ewAndModelWeek.iterrows() }
+
+    # removnig date  bc American Samoa only reported up until 02-25
+    #d = d.drop(columns=["date"])
     
     ewByLocation = pd.pivot_table(index=["ew","mw","date"],columns=["location"],values = ["value"],data=d)
     ewByLocation.columns = [location for (x,location) in ewByLocation.columns]
