@@ -37,6 +37,8 @@ if __name__ == "__main__":
     fluhosp   = prepareData("confirmedFluHosps__wide.csv")
     covidhosp = prepareData("confirmedCOVIDHosps__wide.csv")
 
+    #covidhosp = covidhosp.loc[covidhosp.date != "2022-03-19"] # THIS IS A PATCH
+
     # SELECT STATES
     writeout=1
     HHS = getHHS()
