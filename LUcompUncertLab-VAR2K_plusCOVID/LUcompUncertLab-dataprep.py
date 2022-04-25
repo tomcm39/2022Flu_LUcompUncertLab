@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
 
     #COVIDHOSPS
-    d = pd.read_csv("../../../covid19forecasthub/data-truth/truth-Incident Hospitalizations.csv")
+    d = pd.read_csv("../../../covid19forecasthub_new/data-truth/truth-Incident Hospitalizations.csv")
     
     datesdata = fromdate2YRWK(d.date.unique())
     
