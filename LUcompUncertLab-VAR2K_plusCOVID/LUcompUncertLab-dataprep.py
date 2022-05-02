@@ -65,6 +65,9 @@ if __name__ == "__main__":
     #AGGREGATE FROM DAILY TO EPIDEMIC WEEK. THIS IS DIFFERENT THAN WITH THE FLU
     d = d.groupby(["location","location_name","yr","week","ew","mw"]).apply(lambda x: pd.Series({"value":x.value.sum(),"date":max(x["date"])   }))
     d = d.reset_index()
+
+    #HARDOCDE FOR NOW MUST CHANGE
+    d.loc[(d.location=="60") & (d.date=="2022-04-29"), "date"] = "2022-04-30"
     
     fromMw2Ew = {row.mw:row.ew for _,row in ewAndModelWeek.iterrows() }
 
